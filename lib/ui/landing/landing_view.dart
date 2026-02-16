@@ -1,3 +1,4 @@
+import 'package:edisyon/ui/landing/landing_widgets.dart';
 import 'package:flutter/material.dart';
 
 class Landingview extends StatefulWidget {
@@ -36,6 +37,11 @@ class _LandingviewState extends State<Landingview> {
               label: Text("Azalt"),
             ),
           ],
+        ),
+        ProductCard(
+          visual: Icon(Icons.local_pizza_rounded),
+          title: "Pizza",
+          count: 2,
         ),
       ],
     );

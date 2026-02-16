@@ -1,4 +1,4 @@
-import 'package:edisyon/ui/landing/landingView.dart';
+import 'package:edisyon/ui/landing/landing_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
