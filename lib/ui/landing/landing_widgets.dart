@@ -5,32 +5,47 @@ class ProductCard extends StatelessWidget {
   final Widget? visual;
   final String? title;
   final int? count;
+  final void Function()? add;
+  final void Function()? remove;
   const ProductCard({
     super.key,
     required this.visual,
     required this.title,
     required this.count,
+    required this.add,
+    required this.remove,
   });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: SizedBox(
-        width: MediaQuery.sizeOf(context).width * 0.3,
-        height: MediaQuery.sizeOf(context).width * 0.2,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            visual ?? Icon(Icons.question_mark_rounded, size: 100),
+      child: Padding(
+        padding: EdgeInsets.all(MediaQuery.sizeOf(context).height * 0.02),
+        child: SizedBox(
+          width: MediaQuery.sizeOf(context).width * 0.4,
+          height: MediaQuery.sizeOf(context).height * 0.3,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              visual ?? Icon(Icons.question_mark_rounded, size: 100),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(title ?? "Başlık Girilmedi"),
-                Text("Adet : $count"),
-              ],
-            ),
-          ],
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title ?? "Başlık Girilmedi"),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      IconButton(onPressed: remove, icon: Icon(Icons.remove)),
+                      IconButton(onPressed: add, icon: Icon(Icons.add)),
+                      Spacer(),
+                      Text("Adet : $count"),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

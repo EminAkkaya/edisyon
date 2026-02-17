@@ -15,33 +15,20 @@ class _LandingviewState extends State<Landingview> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("Current Number :$count"),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton.icon(
-              onPressed: () {
-                setState(() {
-                  count++;
-                });
-              },
-              label: Text("Ekle"),
-            ),
-            ElevatedButton.icon(
-              onPressed: () {
-                setState(() {
-                  count--;
-                });
-              },
-              label: Text("Azalt"),
-            ),
-          ],
-        ),
         ProductCard(
           visual: Icon(Icons.local_pizza_rounded),
           title: "Pizza",
-          count: 2,
+          count: count,
+          add: () {
+            setState(() {
+              count++;
+            });
+          },
+          remove: () {
+            setState(() {
+              count--;
+            });
+          },
         ),
       ],
     );
