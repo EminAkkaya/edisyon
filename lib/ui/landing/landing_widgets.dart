@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 // Menüdeki ürünleri göstermek için kullanılan widget
 class ProductCard extends StatelessWidget {
-  final Widget? visual;
-  final String? title;
-  final int? count;
-  final void Function()? add;
-  final void Function()? remove;
+  final Widget visual;
+  final String title;
+  final int count;
+  final void Function() add;
+  final void Function() remove;
   const ProductCard({
     super.key,
     required this.visual,
@@ -27,12 +27,12 @@ class ProductCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              visual ?? Icon(Icons.question_mark_rounded, size: 100),
+              visual,
 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title ?? "Başlık Girilmedi"),
+                  Text(title),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
